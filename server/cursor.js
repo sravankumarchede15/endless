@@ -30,6 +30,12 @@ export function decodeCursor(token) {
   }
 
   try {
+
+
+
+
+
+    
     const expected = crypto
       .createHmac('sha256', appConfig.secret)
       .update(base64UrlDecode(payloadPart))
