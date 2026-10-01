@@ -54,8 +54,10 @@ app.use((err, _req, res, _next) => {
 });
 
 const port = appConfig.port;
-app.listen(port, () => {
-  console.log(`Endless server running on http://localhost:${port}`);
-});
+if (!process.env.VERCEL) {
+  app.listen(port, () => {
+    console.log(`Endless server running on http://localhost:${port}`);
+  });
+}
 
 export default app;
