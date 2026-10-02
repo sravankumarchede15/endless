@@ -27,9 +27,10 @@ export default function Home() {
           <h1 id="feed-title">A feed that feels infinite.<br /><span>A system that stays intentional.</span></h1>
           <p>Personalized ranking, session-aware cursors, and background prefetching working together in one continuous stream.</p>
           <div className="showcase-actions">
-            <Link to="/architecture" className="showcase-link showcase-link-primary">Explore the architecture <ArrowRight className="h-4 w-4" /></Link>
-            <Link to="/lab" className="showcase-link">Open live lab</Link>
+            <Link to="/lab" className="showcase-link showcase-link-primary">Open live lab <ArrowRight className="h-4 w-4" /></Link>
+            <Link to="/explore" className="showcase-link">Explore catalog</Link>
           </div>
+
         </div>
         <div className="showcase-stats" aria-label="System defaults">
           <div><span>Catalog</span><strong>{formatCompactCount(TOTAL_FALLBACK)}</strong><small>synthetic items</small></div>
