@@ -1,7 +1,11 @@
 node_modules
+dist
 /dist
+client/dist
 .vite
+.vercel
 npm-debug.log*
 .DS_Store
 coverage
 .env
+.env.local
