@@ -4,6 +4,8 @@ import Topbar from './Topbar.jsx';
 import Sidebar from './Sidebar.jsx';
 import MobileTabs from './MobileTabs.jsx';
 import LivePill from './LivePill.jsx';
+import AuthModal from '../auth/AuthModal.jsx';
+import AuthToast from '../auth/AuthToast.jsx';
 import { useApp } from '../../context/AppContext.jsx';
 
 export default function Shell() {
@@ -22,6 +24,9 @@ export default function Shell() {
       </div>
       <MobileTabs />
       <LivePill />
+      <AuthModal />
+      <AuthToast />
     </div>
   );
 }
+

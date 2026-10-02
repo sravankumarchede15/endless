@@ -9,6 +9,8 @@ import { formatDuration, formatViews, timeAgo } from '../lib/format.js';
 import Thumbnail from '../components/feed/Thumbnail.jsx';
 import { Avatar } from '../components/feed/VideoCard.jsx';
 import InfiniteView from '../components/feed/InfiniteView.jsx';
+import ReactionsBar from '../components/feed/ReactionsBar.jsx';
+
 
 export default function Watch() {
   const { id } = useParams();
@@ -72,15 +74,11 @@ export default function Watch() {
                   {subbed ? <><Check className="h-4 w-4" /> Subscribed</> : <><Bell className="h-4 w-4" /> Subscribe</>}
                 </button>
               </div>
-              <div className="flex items-center gap-2">
-                <button onClick={() => setLiked((l) => !l)} aria-pressed={liked} className={`inline-flex items-center gap-2 rounded-full border px-4 py-2 text-sm font-medium transition ${liked ? 'border-indigo-400/50 bg-indigo-500/15 text-indigo-200' : 'border-fg/10 bg-fg/5 hover:bg-fg/10'}`}>
-                  <ThumbsUp className="h-4 w-4" /> {formatViews(video.likes + (liked ? 1 : 0))}
-                </button>
-                <button onClick={() => navigator.clipboard?.writeText(window.location.href)} className="inline-flex items-center gap-2 rounded-full border border-fg/10 bg-fg/5 px-4 py-2 text-sm font-medium hover:bg-fg/10">
-                  <Share2 className="h-4 w-4" /> Share
-                </button>
-              </div>
             </div>
+
+            {/* Interactive Live Reactions & Actions */}
+            <ReactionsBar videoId={video.id} initialLikes={video.likes || 320} />
+
 
             <div className="mt-5 rounded-2xl bg-fg/[0.04] p-4 text-sm">
               <p className="flex flex-wrap items-center gap-x-3 gap-y-1 font-semibold">

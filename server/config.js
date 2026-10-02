@@ -3,11 +3,13 @@ export const appConfig = {
   videoCount: Number(process.env.VIDEO_COUNT || 100000),
   frontendHost: process.env.FRONTEND_HOST || 'http://localhost:5173',
   redisUrl: process.env.REDIS_URL || '',
+  mongodbUri: process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/endless',
   sessionTtlMs: 15 * 60 * 1000,
   cursorTtlMs: 15 * 60 * 1000,
   requestLimitPerMinute: 300,
   secret: process.env.CURSOR_SECRET || 'endless-demo-secret',
 };
+
 
 export const categories = [
   'Gaming',

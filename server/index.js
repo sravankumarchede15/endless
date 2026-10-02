@@ -6,7 +6,12 @@ import { fileURLToPath } from 'node:url';
 import fs from 'node:fs';
 import feedRoutes from './routes/feed.js';
 import browseRoutes from './routes/browse.js';
+import authRoutes from './routes/auth.js';
+import { connectDB } from './db/connect.js';
 import { appConfig } from './config.js';
+
+// Connect to MongoDB
+connectDB().catch((err) => console.warn('[MongoDB] Initialization notice:', err.message));
 
 const app = express();
 
@@ -37,6 +42,8 @@ app.use(compression());
 app.use(express.json({ limit: '2mb' }));
 app.use('/api', feedRoutes);
 app.use('/api', browseRoutes);
+app.use('/api/auth', authRoutes);
+
 
 // Production: serve the built client with SPA fallback so deep links like /watch/42 work.
 const dist = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../client/dist');

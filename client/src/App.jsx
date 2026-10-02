@@ -8,6 +8,8 @@ import Category from './pages/Category.jsx';
 import Search from './pages/Search.jsx';
 import Lab from './pages/Lab.jsx';
 import Architecture from './pages/Architecture.jsx';
+import Login from './pages/Login.jsx';
+import Signup from './pages/Signup.jsx';
 import NotFound from './pages/NotFound.jsx';
 
 export default function App() {
@@ -22,8 +24,11 @@ export default function App() {
         <Route path="search" element={<Search />} />
         <Route path="lab" element={<Lab />} />
         <Route path="architecture" element={<Architecture />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<Signup />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
   );
 }
+
